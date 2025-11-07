@@ -1,51 +1,55 @@
-// ====== THEME TOGGLE ======
-const toggleTheme = document.getElementById("theme-toggle");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Ezekiel Ochuko</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-// restore saved theme
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-  document.body.setAttribute("data-theme", "light");
-  if (toggleTheme) toggleTheme.textContent = "☀️";
-}
+  <!-- EO purple favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236b21a8'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Poppins'%3EEO%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">Ezekiel Ochuko</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Portfolio</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </div>
+  </nav>
 
-toggleTheme?.addEventListener("click", () => {
-  const currentTheme = document.body.getAttribute("data-theme");
-  if (currentTheme === "light") {
-    document.body.removeAttribute("data-theme");
-    toggleTheme.textContent = "🌙";
-    localStorage.removeItem("theme");
-  } else {
-    document.body.setAttribute("data-theme", "light");
-    toggleTheme.textContent = "☀️";
-    localStorage.setItem("theme", "light");
-  }
-});
+  <main class="container content">
+    <section class="resume-section">
+      <h2>Ezekiel Ochuko – Junior Backend Developer Resume</h2>
+      <p>View or download my full resume below.</p>
 
-// ====== SMOOTH SCROLL ======
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", e => {
-    e.preventDefault();
-    document.querySelector(anchor.getAttribute("href"))?.scrollIntoView({ behavior: "smooth" });
-  });
-});
+      <!-- PDF viewer -->
+      <div class="resume-viewer">
+        <iframe src="./Ezekiel_Ochuko_Resume.pdf" width="100%" height="800" style="border:none;"></iframe>
+      </div>
 
-// ====== STATUS FADE ANIMATION ======
-const statusMsg = document.getElementById("status");
-if (statusMsg) {
-  const observer = new MutationObserver(() => {
-    if (statusMsg.textContent.trim() !== "") {
-      statusMsg.style.opacity = "1";
-      statusMsg.style.transition = "opacity 0.6s ease";
-      setTimeout(() => { statusMsg.style.opacity = "0"; }, 3500);
-    }
-  });
-  observer.observe(statusMsg, { childList: true });
-}
+      <div class="download-btn">
+        <a class="btn" href="./Ezekiel_Ochuko_Resume.pdf" download>⬇️ Download Resume (PDF)</a>
+      </div>
+    </section>
+  </main>
 
-// ====== FLOATING LABEL EFFECT ======
-document.querySelectorAll(".form-group input, .form-group textarea").forEach(field => {
-  field.addEventListener("focus", () => field.parentElement.classList.add("active"));
-  field.addEventListener("blur", () => { if (!field.value) field.parentElement.classList.remove("active"); });
-});
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Ezekiel Ochuko — Remote (GMT+1, Nigeria)</p>
+      <p>
+        💻 <a href="https://github.com/Ezekiel942" target="_blank">GitHub</a> | 
+        🔗 <a href="https://linkedin.com/in/ochuko-ezekiel-30125929a" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </footer>
 
-console.log("%cWelcome to Ezekiel Ochuko’s Portfolio 🚀", "color:#7c3aed;font-weight:bold;");
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
