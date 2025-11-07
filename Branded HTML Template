@@ -1,0 +1,30 @@
+<div style="font-family: 'Poppins', 'Segoe UI', Roboto, Arial, sans-serif; color: #333; background-color: #f9f9fb; padding: 20px;">
+  <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 14px; box-shadow: 0 3px 8px rgba(0,0,0,0.08); overflow: hidden;">
+    
+    <!-- Header -->
+    <div style="background-color: #6b21a8; color: white; padding: 25px; text-align: center;">
+      <div style="font-size: 42px; font-weight: bold; letter-spacing: 1px;">EO</div>
+      <h2 style="margin: 10px 0 0; font-size: 20px;">New Contact Message</h2>
+    </div>
+
+    <!-- Body -->
+    <div style="padding: 25px;">
+      <p style="font-size: 16px;"><strong>👤 From:</strong> {{from_name}}</p>
+      <p style="font-size: 16px;"><strong>📧 Email:</strong> {{from_email}}</p>
+      <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+      <p style="font-size: 16px; margin-bottom: 10px;"><strong>💬 Message:</strong></p>
+      <p style="white-space: pre-wrap; font-size: 15px; line-height: 1.6; color: #444;">{{message}}</p>
+    </div>
+
+    <!-- Footer -->
+    <div style="background-color: #f3e8ff; color: #4a148c; padding: 15px; text-align: center; font-size: 13px;">
+      <p style="margin: 0;">Message sent from your <strong>Portfolio Contact Form</strong></p>
+      <p style="margin-top: 6px;">
+        🌐 <a href="https://ochukoezekiel.github.io" target="_blank" style="color: #6b21a8; text-decoration: none;">Portfolio</a> |
+        💻 <a href="https://github.com/Ezekiel942" target="_blank" style="color: #6b21a8; text-decoration: none;">GitHub</a> |
+        🔗 <a href="https://linkedin.com/in/ochuko-ezekiel-30125929a" target="_blank" style="color: #6b21a8; text-decoration: none;">LinkedIn</a>
+      </p>
+    </div>
+
+  </div>
+</div>
