@@ -27,6 +27,7 @@
       <h2>Contact Me</h2>
       <p>Send me a quick message — I’ll reply shortly.</p>
 
+      <!-- ✅ Contact form -->
       <form id="contact-form">
         <div class="form-group">
           <input type="text" id="name" name="name" required />
@@ -56,11 +57,14 @@
     </div>
   </footer>
 
+  <!-- ✅ EmailJS and main script -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="assets/js/main.js"></script>
+
   <script>
-    (function(){
-      emailjs.init("nk60I8QPzgN1mYwAM");
+    // Initialize EmailJS with your public key
+    (function() {
+      emailjs.init("nk60I8QPzgN1mYwAM"); // ⚠️ Your public key (do NOT expose private key)
     })();
 
     const form = document.getElementById("contact-form");
@@ -69,17 +73,19 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       status.textContent = "📨 Sending…";
+
       try {
         await emailjs.send("service_18vthyl", "template_fl8p363", {
-          name: form.name.value,
-          email: form.email.value,
+          from_name: form.name.value,
+          from_email: form.email.value,
           message: form.message.value
         });
+
         status.textContent = "✅ Message sent successfully!";
         form.reset();
       } catch (err) {
-        status.textContent = "❌ Message failed. Check EmailJS setup.";
         console.error(err);
+        status.textContent = "❌ Message failed. Please try again.";
       }
     });
   </script>
