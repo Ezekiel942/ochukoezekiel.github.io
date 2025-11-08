@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Ezekiel Ochuko</title>
+  <title>Contact — Ezekiel Ochuko | Junior Backend Developer</title>
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236b21a8'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Poppins'%3EEO%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+
+  <!-- HTML-based Favicon (EO Purple) -->
+  <link 
+    rel="icon" 
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236b21a8'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Poppins'%3EEO%3C/text%3E%3C/svg%3E" 
+    type="image/svg+xml"
+  />
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Get in touch with Ezekiel Ochuko — Junior Backend Developer skilled in Node.js, Express, MongoDB, and API development. Available for remote roles, collaborations, and internships.">
+  <meta name="author" content="Ezekiel Ochuko" />
 </head>
+
 <body>
+  <!-- Navigation -->
   <nav class="nav">
     <div class="container nav-inner">
       <a class="brand" href="index.html">Ezekiel Ochuko</a>
@@ -22,49 +34,64 @@
     </div>
   </nav>
 
+  <!-- Main Content -->
   <main class="container content">
     <section>
       <h2>Contact Me</h2>
-      <p>Send me a quick message — I’ll reply shortly.</p>
+      <p>If you’d like to collaborate, discuss an opportunity, or just say hello — feel free to reach out below 👇. I’ll get back to you as soon as possible.</p>
 
-      <!-- ✅ Contact form -->
-      <form id="contact-form">
+      <!-- Contact Form -->
+      <form id="contact-form" autocomplete="off">
         <div class="form-group">
-          <input type="text" id="name" name="name" required />
           <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="John Doe" />
         </div>
+
         <div class="form-group">
-          <input type="email" id="email" name="email" required />
           <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required placeholder="example@email.com" />
         </div>
+
         <div class="form-group">
-          <textarea id="message" name="message" rows="5" required></textarea>
           <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
         </div>
+
         <button type="submit" class="btn">Send Message</button>
+        <p id="status" class="status"></p>
       </form>
-      <p id="status" class="status"></p>
+
+      <!-- Direct contact options -->
+      <div class="contact-direct">
+        <h3>Prefer direct contact?</h3>
+        <p>
+          📧 <a href="mailto:ochukoezekiel942@gmail.com">ochukoezekiel942@gmail.com</a><br />
+          💻 <a href="https://github.com/Ezekiel942" target="_blank">GitHub</a> |
+          🔗 <a href="https://linkedin.com/in/ochuko-ezekiel-30125929a" target="_blank">LinkedIn</a>
+        </p>
+      </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <p>© 2025 Ezekiel Ochuko — Remote (GMT+1, Nigeria)</p>
       <p>
-        💻 <a href="https://github.com/Ezekiel942" target="_blank">GitHub</a> | 
+        💻 <a href="https://github.com/Ezekiel942" target="_blank">GitHub</a> |
         🔗 <a href="https://linkedin.com/in/ochuko-ezekiel-30125929a" target="_blank">LinkedIn</a>
       </p>
     </div>
   </footer>
 
-  <!-- ✅ EmailJS and main script -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="assets/js/main.js"></script>
 
   <script>
     // Initialize EmailJS with your public key
     (function() {
-      emailjs.init("nk60I8QPzgN1mYwAM"); // ⚠️ Your public key (do NOT expose private key)
+      emailjs.init("nk60I8QPzgN1mYwAM");
     })();
 
     const form = document.getElementById("contact-form");
@@ -72,20 +99,20 @@
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      status.textContent = "📨 Sending…";
+      status.textContent = "📨 Sending your message...";
 
       try {
         await emailjs.send("service_18vthyl", "template_fl8p363", {
           from_name: form.name.value,
           from_email: form.email.value,
-          message: form.message.value
+          message: form.message.value,
         });
 
-        status.textContent = "✅ Message sent successfully!";
+        status.textContent = "Message sent successfully! I’ll reply soon.";
         form.reset();
       } catch (err) {
         console.error(err);
-        status.textContent = "❌ Message failed. Please try again.";
+        status.textContent = "Message failed to send. Please try again or email me directly.";
       }
     });
   </script>
